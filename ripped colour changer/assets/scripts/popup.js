@@ -18,10 +18,10 @@ changeTextDiv.appendChild(fontPicker)
 let submitBtn = document.createElement('button')
 submitBtn.innerHTML = "submit"
 document.getElementById('submitButtons').appendChild(submitBtn)
-submitBtn.addEventListener('click', () => {
-  chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
-    chrome.tabs.executeScript(tabs[0].id, {
-      code: `document.body.style.setProperty('background-color','${backgroundPicker.value}','important');
+submitBtn.addEventListener('click', () => { // links button to the following function
+  chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) { // selects the active tabs
+    chrome.tabs.executeScript(tabs[0].id, {   // selects the current tab // The next lines are the javascript code injected into the current active tab
+      code: `document.body.style.setProperty('background-color','${backgroundPicker.value}','important'); 
               var divs = document.getElementsByTagName('div');
               var canvases = document.getElementsByTagName('canvas');
               var tables = document.getElementsByTagName('table');
@@ -70,16 +70,14 @@ buttonButton.addEventListener('click', () => {
 })
 
 
-// add the font size changer text box
+// add the font size changer
 let fontInput = document.createElement('input')
 fontInput.placeholder = "Font Size (Integer)"
-// add the font size submit button
+
 let fontSubmit = document.createElement('button')
 fontSubmit.innerHTML = "Change Font"
 document.getElementById('font').appendChild(fontInput)
 document.getElementById('font').appendChild(fontSubmit)
-
-
 
 fontSubmit.addEventListener('click', () => {
   chrome.tabs.query({ active: true, currentWindow: true}, function(tabs) {
