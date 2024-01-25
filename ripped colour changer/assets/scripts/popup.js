@@ -70,10 +70,10 @@ buttonButton.addEventListener('click', () => {
 })
 
 
-// add the font size changer
+// add the font size changer text box
 let fontInput = document.createElement('input')
 fontInput.placeholder = "Font Size (Integer)"
-
+// add the font size submit button
 let fontSubmit = document.createElement('button')
 fontSubmit.innerHTML = "Change Font"
 document.getElementById('font').appendChild(fontInput)
